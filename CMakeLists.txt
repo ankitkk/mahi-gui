@@ -127,7 +127,7 @@ install(TARGETS clipper EXPORT mahi-gui-targets
 #===============================================================================
 
 include(FetchContent)
-FetchContent_Declare(mahi-util GIT_REPOSITORY https://github.com/mahilab/mahi-util.git)
+FetchContent_Declare(mahi-util GIT_REPOSITORY https://github.com/ankitkk/mahi-util.git)
 FetchContent_MakeAvailable(mahi-util)
 
 #===============================================================================
