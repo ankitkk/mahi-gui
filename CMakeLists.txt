@@ -130,6 +130,11 @@ include(FetchContent)
 FetchContent_Declare(mahi-util GIT_REPOSITORY https://github.com/ankitkk/mahi-util.git)
 FetchContent_MakeAvailable(mahi-util)
 
+FetchContent_Declare(fmt GIT_REPOSITORY https://github.com/fmtlib/fmt.git GIT_TAG b6f4ceaed0a0a24ccf575fab6c56dd50ccf6f1a9)
+FetchContent_MakeAvailable(fmt)
+install(TARGETS fmt EXPORT mahi-gui-targets LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(TARGETS util EXPORT mahi-gui-targets LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
 #===============================================================================
 # CREATE LIBRARY
 #===============================================================================
