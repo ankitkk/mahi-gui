@@ -46,14 +46,6 @@ void BeginDisabled(bool disabled, float alpha) {
     }
 }
 
-/// Ends a disabled section
-void EndDisabled() {
-    if (g_BeginDisabledActive) {
-        ImGui::PopItemFlag();
-        ImGui::PopStyleVar();
-        g_BeginDisabledActive = false;
-    }
-}
 
 bool ToggleButton(const char *label, bool *toggled, const ImVec2 &size) {
     bool pressed = false;

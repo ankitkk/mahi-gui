@@ -847,7 +847,7 @@ class Piece : public Transformable
         bool hovered = shape.contains(mouse);
         if (hovered) {
             ImGui::BeginTooltip();
-            ImGui::TextColored(color, "Piece");
+            ImGui::TextColored(*(ImVec4*)&color, "Piece");
             ImGui::Text("R:%i C:%i P:%i", coord.r, coord.c, perm);
             ImGui::Separator();
             auto permMat = matrix;
@@ -956,16 +956,16 @@ public:
         if (ImGui::Button("Shuffle")) 
             start_coroutine(shuffle());      
         ImGui::SameLine();  
-        ImGui::BeginDisabled(animating || solver.solutions.size() > 0);
+        ImGui::BeginDisabled(animating || solver.solutions.size() > 0, 0.25);
         if (ImGui::Button("Solve")) 
             solve();        
         ImGui::EndDisabled();
         if (solver.solutions.size()) {
             ImGui::SameLine();
-            ImGui::Text("Solve Time: %d ms | Operations: %d", ms_solve, solver.operations.size(), solver.solutions.size());
+            ImGui::Text("Solved");
         }
 
-        ImGui::BeginDisabled(solver.solutions.size() == 0);
+        ImGui::BeginDisabled(solver.solutions.size() == 0,0.25);
         if (ImGui::Button("Animate"))
             start_coroutine(animateSolution());
         ImGui::SameLine();
@@ -978,7 +978,7 @@ public:
         for (int i = 0; i < pieces.size(); ++i) {
             ImGui::PushID(i);
             ImGui::PushItemWidth(100);
-            ImGui::ColorButton("##Color",pieces[i].color); ImGui::SameLine();
+            ImGui::ColorButton("##Color",*(ImVec4*)&pieces[i].color); ImGui::SameLine();
             int r = pieces[i].coord.r;
             int c = pieces[i].coord.c;
             int p = pieces[i].perm;

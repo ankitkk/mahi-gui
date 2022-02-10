@@ -85,7 +85,7 @@ set(IMGUI_HEADERS
     3rdparty/imgui/imstb_rectpack.h
     3rdparty/imgui/imstb_textedit.h
     3rdparty/imgui/imstb_truetype.h
-    3rdparty/imgui/imgui_stdlib.h
+    3rdparty/imgui_stdlib.h
 )
 
 set(IMGUI_SRC
@@ -93,13 +93,14 @@ set(IMGUI_SRC
     3rdparty/imgui/imgui_draw.cpp
     3rdparty/imgui/imgui_widgets.cpp
     3rdparty/imgui/imgui.cpp
-    3rdparty/imgui/imgui_stdlib.cpp
+    3rdparty/imgui/imgui_tables.cpp
+    3rdparty/imgui_stdlib.cpp
     3rdparty/imgui/backends/imgui_impl_glfw.cpp
     3rdparty/imgui/backends/imgui_impl_glfw.h
     3rdparty/imgui/backends/imgui_impl_opengl3.cpp
     3rdparty/imgui/backends/imgui_impl_opengl3.h
 )
-set(IMGUI_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/imgui)
+set(IMGUI_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/imgui )
 
 set(IMPLOT_HEADERS 3rdparty/implot/implot.h 3rdparty/implot/implot_internal.h)
 set(IMPLOT_SRC     3rdparty/implot/implot.cpp 3rdparty/implot/implot_items.cpp 3rdparty/implot/implot_demo.cpp)

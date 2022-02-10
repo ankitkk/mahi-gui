@@ -89,7 +89,7 @@ public:
         for (unsigned int i = 0; i < writer.logs.size(); ++i)
         {
             if (filter.PassFilter(writer.logs[i].second.c_str())) {
-                ImGui::PushStyleColor(ImGuiCol_Text, colors[writer.logs[i].first]);
+                ImGui::PushStyleColor(ImGuiCol_Text, *(ImVec4*)&colors[writer.logs[i].first]);
                 ImGui::TextUnformatted(writer.logs[i].second.c_str());
                 ImGui::PopStyleColor();
             }

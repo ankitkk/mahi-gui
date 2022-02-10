@@ -56,8 +56,10 @@ public:
         ImGui::BeginFixed("##Likert", {0,0}, {width, height}, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoSavedSettings);
         if (loaded) {
             // Subject Info
+            static char buf[100];
             ImGui::SetNextItemWidth(100);
-            ImGui::InputText("Subject     ", &subject);
+            ImGui::InputText("Subject     ", buf, 100);
+
             ImGui::SameLine();
             ImGui::SetNextItemWidth(50);
             if (ImGui::BeginCombo("Age     ", age != -1 ? std::to_string(age).c_str() : "")) {
@@ -77,7 +79,7 @@ public:
                 sex = Female;
             ImGui::SameLine();
             ImGui::SameLine(ImGui::GetWindowWidth() - 105);
-            if (ImGui::ButtonColored("Submit", Reds::FireBrick, {100,0})) {
+            if (ImGui::ButtonColored("Submit", *(ImVec4*)&Reds::FireBrick, {100,0})) {
                 bool result = saveResponse();
                 if (result && autoClose)
                     quit();

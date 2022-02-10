@@ -36,7 +36,7 @@ public:
         {
             PlotItem item;
             item.data.reserve(1000);
-            item.color = random_color();
+            item.color =  ImVec4( (float)random_range(0.0,1.0), (float)random_range(0.0,1.0),(float)random_range(0.0,1.0), 0.5);
             item.label = fmt::format("item_{}",i);
             float y = i * 0.01f;
             for (int i = 0; i < 1000; ++i)
@@ -68,7 +68,7 @@ public:
         ImGui::SameLine();
         ImGui::Checkbox("Animate", &animate);
         ImGui::Text("%lu lines, 1000 pts ea. @ %.3f FPS", items.size(), ImGui::GetIO().Framerate);
-        if (ImPlot::BeginPlot("##Plot", NULL, NULL, ImVec2(-1,-1), ImPlotFlags_NoChild)) {
+        if (ImPlot::BeginPlot("##Plot",ImVec2(-1,-1), ImPlotFlags_NoChild)) {
             if (render) {         
                 for (int i = 0; i < 100; ++i) {
                     ImPlot::PushStyleColor(ImPlotCol_Line, items[i].color);

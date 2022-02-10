@@ -68,7 +68,7 @@ public:
         }
         ImGui::SameLine();
         ImGui::TextUnformatted(path.c_str());
-        ImGui::BeginDisabled(svg == nullptr);
+        ImGui::BeginDisabled(svg == nullptr, 0.26);
         if (ImGui::Button("Rasterize"))
             rasterize();
         ImGui::EndDisabled();
@@ -85,7 +85,7 @@ public:
         ImGui::End();
         if (!ImGui::IsWindowFocused(ImGuiFocusedFlags_AnyWindow) && !ImGui::IsWindowHovered(ImGuiFocusedFlags_AnyWindow)) {
             if (ImGui::IsMouseDown(0))
-                transform.move(ImGui::GetIO().MouseDelta);
+                transform.move(ImGui::GetIO().MouseDelta.x,ImGui::GetIO().MouseDelta.y);
             if (ImGui::IsMouseDown(1))
                 transform.rotate(ImGui::GetIO().MouseDelta.x * 0.1f);
             if (ImGui::GetIO().MouseWheel > 0)
